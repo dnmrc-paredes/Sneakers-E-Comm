@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
 import Image from 'next/image'
 import Avatar from '../../public/image-avatar.png'
+import Logo from '../../public/logo.svg' 
 
 export const Navbar = () => {
   return (
     <S.Container>
       <S.Logo>
-        <h1> sneakers </h1>
+        <Image src={Logo} alt="Logo" />
       </S.Logo>
       <S.Links>
         <Link href='#'> Collections </Link>

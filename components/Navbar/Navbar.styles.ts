@@ -46,6 +46,8 @@ export const S = {
   `,
   CartImage: styled.div`
     margin-right: 2rem;
-  `,add
-  ProfileImage: styled.div``
+  `,
+  ProfileImage: styled.div`
+  
+  `
 }
