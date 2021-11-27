@@ -4,6 +4,7 @@ import { Root } from '../components/Pages'
 import Head from 'next/head'
 import Image from 'next/image'
 import BigImage from '../public/image-product-1.jpg'
+import { ButtonGroup } from '../components/Pages/ButtonGroup'
 
 const Home: NextPage = () => {
   return (
@@ -25,6 +26,13 @@ const Home: NextPage = () => {
             the weather can offer.
           </Root.ProductInfo>
           <Root.Price> $125.00 <span> 50% </span> </Root.Price>
+          <Root.Discount> $250.00 </Root.Discount>
+          <Root.ButtonContainer>
+            <ButtonGroup count={0} />
+            <Root.AddToCart>
+              Add to cart
+            </Root.AddToCart>
+          </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>
     </Root.Container>

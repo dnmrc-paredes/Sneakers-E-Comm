@@ -8,7 +8,6 @@ export const Root = {
   `,
   ProductContainer: styled.div`
     display: flex;
-    /* background-color: red; */
     min-height: 100vh;
     align-items: center;
   `,
@@ -16,7 +15,6 @@ export const Root = {
     flex: 1;
     display: flex;
     justify-content: center;
-    /* background-color: red; */
     img {
       border-radius: 15px;
       margin: auto 0px;
@@ -27,7 +25,6 @@ export const Root = {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* background-color: yellow; */
     margin: 0 1rem;
   `,
   SmallText: styled.p`
@@ -37,20 +34,17 @@ export const Root = {
     font-size: 14px;
     color: ${COLORS.ORANGE};
     margin-bottom: 18px;
-    /* margin: 0 80px 18px 80px; */
   `,
   ProductTitle: styled.h1`
     font-family: ${FONTS.KUMBH_SANS};
     font-size: 40px;
     margin-bottom: 22px;
-    /* margin: 0 80px 22px 80px; */
   `,
   ProductInfo: styled.p`
     font-family: ${FONTS.KUMBH_SANS};
     font-size: 18px;
     color: ${COLORS.LIGHT_GRAY};
     margin-bottom: 20px;
-    /* margin: 0 80px 20px 80px; */
   `,
   Price: styled.p`
     font-family: ${FONTS.NUNITO_SANS};
@@ -69,9 +63,68 @@ export const Root = {
       font-size: 18px;
       border-radius: 5px;
     }
-    /* margin: 0 80px 18px 80px; */
   `,
-  ButtonGroup: styled.div`
-
+  Discount: styled.p`
+    margin-top: 10px;
+    text-decoration: line-through;
+    font-family: ${FONTS.NUNITO_SANS};
+    font-weight: 800;
+    color: hsl(220, 14%, 75%);
+  `,
+  ButtonContainer: styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    justify-content: space-between;
+  `,
+  Buttons: styled.div`
+    flex: 1;
+    display: flex;
+    height: 50px;
+    width: 130px;
+    border-radius: 10px;
+    background-color: hsl(223, 64%, 98%);
+  `,
+  Count: styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: ${FONTS.KUMBH_SANS};
+    font-weight: 800;
+  `,
+  Minus: styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  `,
+  Plus: styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+  `,
+  AddToCart: styled.button`
+    flex: 2;
+    background-color: ${COLORS.ORANGE};
+    width: 100%;
+    height: 50px;
+    margin: 0 13px;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-family: ${FONTS.KUMBH_SANS};
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
   `
 }
