@@ -10,7 +10,7 @@ export const Navbar = () => {
   return (
     <S.Container>
       <S.Logo>
-        <Image src={Logo} alt="Logo" />
+        <Image src={Logo} height={20} width={150} alt="Logo" />
       </S.Logo>
       <S.Links>
         <Link href='#'> Collections </Link>

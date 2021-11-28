@@ -8,13 +8,24 @@ export const S = {
     align-items: center;
     border-bottom: lightgray solid 1px;
     margin: 0 8rem;
+    @media screen and (min-width: 300px) and (max-width: 761px) {
+      margin: 0;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1000px) {
+      margin: 0 3rem;
+    }
+    @media screen and (min-width: 1000px) and (max-width: 1400px) {
+      margin: 0 8rem;
+    }
   `,
   Logo: styled.div(() => ({
     flex: 1,
     display: 'flex',
-    h1: {
-      fontFamily: FONTS.KUMBH_SANS,
-      fontWeight: 700
+    '@media screen and (min-width: 300px) and (max-width: 761px)': {
+      marginLeft: '20px',
+      img: {
+        width: '100px',
+      }
     }
   })),
   Links: styled.div(() => ({
@@ -35,6 +46,9 @@ export const S = {
         fontWeight: 700,
         color: 'black',
         borderBottom: '5px solid hsl(26, 100%, 55%)'
+      },
+      '@media screen and (min-width: 300px) and (max-width: 761px)': {
+        display: 'none'
       }
     }
   })),
@@ -47,7 +61,5 @@ export const S = {
   CartImage: styled.div`
     margin-right: 2rem;
   `,
-  ProfileImage: styled.div`
-  
-  `
+  ProfileImage: styled.div``
 }

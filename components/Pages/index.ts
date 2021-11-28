@@ -1,61 +1,85 @@
 import styled from 'styled-components'
 import { FONTS } from '../../constants/fonts'
 import { COLORS } from '../../constants/colors'
+// import { BREAKPOINTS } from '../../utils/breakpoints'
 
 export const Root = {
-  Container: styled.div``,
-  ProductContainer: styled.div`
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      padding: 20px 0;
+  Container: styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin: 0 5rem;
+    } */
+    @media screen and (min-width: 912px) and (max-width: 1000px) {
+      margin: 0 3rem;
     }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      padding: 20px 0;
+    @media screen and (min-width: 1000px) and (max-width: 1400px) {
+      margin: 0 8rem;
+    }
+  `,
+  ProductContainer: styled.div`
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      flex-direction: row;
     }
   `,
   ImagesContainer: styled.div`
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      margin: 2rem 0;
+    flex: 1;
+    margin: 2rem 0;
+    display: flex;
+    @media screen and (min-width: 912px) and (max-width: 1279px) {
+      flex-direction: column;
+      margin: 0;
     }
+  `,
+  BigImageContainer: styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
     @media screen and (min-width: 481px) and (max-width: 768px) {
-      margin: 2rem 0;
+      margin: 0 5rem;
+      img {
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin: 0 5rem;
+      img {
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin: 0;
+      img {
+        border-radius: 15px;
+      }
     }
   `,
   ThumbnailContainer: styled.div`
-    /* flex: 2; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 35px;
-    /* background-color: yellow; */
-    /* width: 100%; */
-    img {
-      border: solid transparent 0px;
-      border-radius: 15px;
-      cursor: pointer;
-
-      &:hover {
-        border: solid ${COLORS.ORANGE} 3px;
-      }
-    }
+    display: none;
   `,
-  Thumbnails: styled.div`
-    /* border-radius: 20px;
-    border: 3px solid transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    &:hover {
-      border: solid 3px ${COLORS.ORANGE};
-      background-color: rgba(255, 255, 255, );
-    } */
-  `,
+  // Thumbnails: styled.div``,
   InfoContainer: styled.div`
     flex: 1;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 1rem;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin: 0 2rem;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin: 0 3rem;
+    }
   `,
   SmallText: styled.p`
     font-family: ${FONTS.KUMBH_SANS};
@@ -106,15 +130,15 @@ export const Root = {
   `,
   ButtonContainer: styled.div`
     display: flex;
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      flex-direction: row;
     }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 20px;
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      flex-direction: row;
     }
   `,
   Buttons: styled.div`
@@ -122,14 +146,7 @@ export const Root = {
     display: flex;
     border-radius: 10px;
     background-color: hsl(223, 64%, 98%);
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      width: 100%;
-      height: 100px;
-    }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      width: 100%;
-      height: 100px;
-    }
+    width: 100%;
   `,
   Count: styled.div`
     display: flex;
@@ -148,12 +165,6 @@ export const Root = {
     outline: none;
     background-color: transparent;
     cursor: pointer;
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      height: 55px;
-    }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      height: 55px;
-    }
   `,
   Plus: styled.button`
     display: flex;
@@ -164,12 +175,7 @@ export const Root = {
     outline: none;
     background-color: transparent;
     cursor: pointer;
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      height: 55px;
-    }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      height: 55px;
-    }
+    padding: 20px 0;
   `,
   AddToCart: styled.button`
     flex: 2;
@@ -185,13 +191,13 @@ export const Root = {
     font-weight: 800;
     color: white;
     cursor: pointer;
-    @media screen and (min-width: 300px) and (max-width: 480px) {
-      margin-top: 15px;
-      padding: 20px 0;
+    padding: 17px 0;
+    margin-top: 18px;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin-top: 0;
     }
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      margin-top: 15px;
-      padding: 20px 0;
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin-top: 0;
     }
   `
 }

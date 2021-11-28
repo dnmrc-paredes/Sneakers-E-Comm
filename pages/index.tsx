@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import BigImage from '../public/image-product-1.jpg'
 import { ButtonGroup } from '../components/Pages/ButtonGroup'
-// import { Thumbnails } from '../components/Pages/Thumbnail'
+import { Thumbnails } from '../components/Pages/Thumbnail'
 
 const Home: NextPage = () => {
   const [count, setCount] = useState(0)
@@ -18,14 +18,10 @@ const Home: NextPage = () => {
 
       <Root.ProductContainer>
         <Root.ImagesContainer>
-          <Image
-            src={BigImage}
-            layout='responsive'
-            height='100%'
-            width='100%'
-            alt='Product 1'
-          />
-          {/* <Thumbnails/> */}
+          <Root.BigImageContainer>
+            <Image src={BigImage} layout="intrinsic" height={450} width={500} alt='Product 1' />
+          </Root.BigImageContainer>
+          <Thumbnails/>
         </Root.ImagesContainer>
         <Root.InfoContainer>
           <Root.SmallText> Sneaker Company </Root.SmallText>
