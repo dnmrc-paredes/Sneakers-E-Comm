@@ -3,22 +3,52 @@ import { FONTS } from '../../constants/fonts'
 import { COLORS } from '../../constants/colors'
 
 export const Root = {
-  Container: styled.div`
-    margin: 0 8rem;
-  `,
+  Container: styled.div``,
   ProductContainer: styled.div`
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      padding: 20px 0;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      padding: 20px 0;
+    }
   `,
   ImagesContainer: styled.div`
-    flex: 1;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      margin: 2rem 0;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      margin: 2rem 0;
+    }
+  `,
+  ThumbnailContainer: styled.div`
+    /* flex: 2; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    /* background-color: yellow; */
+    /* width: 100%; */
+    img {
+      border: solid transparent 0px;
+      border-radius: 15px;
+      cursor: pointer;
+
+      &:hover {
+        border: solid ${COLORS.ORANGE} 3px;
+      }
+    }
+  `,
+  Thumbnails: styled.div`
+    /* border-radius: 20px;
+    border: 3px solid transparent;
     display: flex;
     justify-content: center;
-    img {
-      border-radius: 15px;
-      margin: auto 0px;
-    }
+    align-items: center;
+    overflow: hidden;
+    &:hover {
+      border: solid 3px ${COLORS.ORANGE};
+      background-color: rgba(255, 255, 255, );
+    } */
   `,
   InfoContainer: styled.div`
     flex: 1;
@@ -39,6 +69,9 @@ export const Root = {
     font-family: ${FONTS.KUMBH_SANS};
     font-size: 40px;
     margin-bottom: 22px;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      font-size: 30px;
+    }
   `,
   ProductInfo: styled.p`
     font-family: ${FONTS.KUMBH_SANS};
@@ -73,17 +106,30 @@ export const Root = {
   `,
   ButtonContainer: styled.div`
     display: flex;
-    align-items: center;
-    margin-top: 25px;
-    justify-content: space-between;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
   `,
   Buttons: styled.div`
     flex: 1;
     display: flex;
-    height: 50px;
-    width: 130px;
     border-radius: 10px;
     background-color: hsl(223, 64%, 98%);
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      width: 100%;
+      height: 100px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      width: 100%;
+      height: 100px;
+    }
   `,
   Count: styled.div`
     display: flex;
@@ -102,6 +148,12 @@ export const Root = {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      height: 55px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      height: 55px;
+    }
   `,
   Plus: styled.button`
     display: flex;
@@ -112,12 +164,19 @@ export const Root = {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      height: 55px;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      height: 55px;
+    }
   `,
   AddToCart: styled.button`
     flex: 2;
     background-color: ${COLORS.ORANGE};
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 50px;
     margin: 0 13px;
     border-radius: 12px;
     border: none;
@@ -126,5 +185,13 @@ export const Root = {
     font-weight: 800;
     color: white;
     cursor: pointer;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      margin-top: 15px;
+      padding: 20px 0;
+    }
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      margin-top: 15px;
+      padding: 20px 0;
+    }
   `
 }

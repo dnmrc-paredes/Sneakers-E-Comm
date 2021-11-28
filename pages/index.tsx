@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import type { NextPage } from 'next'
 import { Root } from '../components/Pages'
 import Head from 'next/head'
 import Image from 'next/image'
 import BigImage from '../public/image-product-1.jpg'
 import { ButtonGroup } from '../components/Pages/ButtonGroup'
+// import { Thumbnails } from '../components/Pages/Thumbnail'
 
 const Home: NextPage = () => {
+  const [count, setCount] = useState(0)
+
   return (
     <Root.Container>
       <Head>
@@ -15,7 +18,14 @@ const Home: NextPage = () => {
 
       <Root.ProductContainer>
         <Root.ImagesContainer>
-          <Image src={BigImage} height={400} width={400} alt="Product 1" />
+          <Image
+            src={BigImage}
+            layout='responsive'
+            height='100%'
+            width='100%'
+            alt='Product 1'
+          />
+          {/* <Thumbnails/> */}
         </Root.ImagesContainer>
         <Root.InfoContainer>
           <Root.SmallText> Sneaker Company </Root.SmallText>
@@ -25,13 +35,13 @@ const Home: NextPage = () => {
             Featuring a durable rubber outer sole, they’ll withstand everything
             the weather can offer.
           </Root.ProductInfo>
-          <Root.Price> $125.00 <span> 50% </span> </Root.Price>
+          <Root.Price>
+            $125.00 <span> 50% </span>
+          </Root.Price>
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>
-            <ButtonGroup count={0} />
-            <Root.AddToCart>
-              Add to cart
-            </Root.AddToCart>
+            <ButtonGroup setCount={setCount} count={count} />
+            <Root.AddToCart>Add to cart</Root.AddToCart>
           </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>
