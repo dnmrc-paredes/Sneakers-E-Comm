@@ -20,8 +20,8 @@ export const Root = {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    @media screen and (min-width: 481px) and (max-width: 768px) {
-      padding: 20px 0;
+    @media screen and (min-width: 300px) and (max-width: 768px) {
+      padding: 0 0 20px 0;
     }
     @media screen and (min-width: 769px) and (max-width: 911px) {
       padding: 20px 0;
