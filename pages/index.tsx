@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       <Root.ProductContainer>
         <Root.ImagesContainer>
           <Root.BigImageContainer>
-            <Image src={BigImage} layout="intrinsic" height={450} width={500} alt='Product 1' />
+            <Image src={BigImage} layout="intrinsic" height={400} width={400} alt='Product 1' />
           </Root.BigImageContainer>
           <Thumbnails/>
         </Root.ImagesContainer>

@@ -8,9 +8,6 @@ export const Root = {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* @media screen and (min-width: 769px) and (max-width: 912px) {
-      margin: 0 5rem;
-    } */
     @media screen and (min-width: 912px) and (max-width: 1000px) {
       margin: 0 3rem;
     }
@@ -19,19 +16,28 @@ export const Root = {
     }
   `,
   ProductContainer: styled.div`
-    padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      padding: 20px 0;
+    }
+    @media screen and (min-width: 769px) and (max-width: 911px) {
+      padding: 20px 0;
+    }
     @media screen and (min-width: 912px) and (max-width: 1400px) {
       flex-direction: row;
+      padding: 20px 0;
     }
   `,
   ImagesContainer: styled.div`
     flex: 1;
-    margin: 2rem 0;
+    margin: 0 0 2rem 0;
     display: flex;
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      margin: 2rem 0;
+    }
     @media screen and (min-width: 912px) and (max-width: 1279px) {
       flex-direction: column;
       margin: 0;
@@ -67,7 +73,7 @@ export const Root = {
     margin-top: 35px;
     display: none;
   `,
-  // Thumbnails: styled.div``,
+  Thumbnails: styled.div``,
   InfoContainer: styled.div`
     flex: 1;
     display: flex;
