@@ -1,31 +1,91 @@
 import styled from 'styled-components'
 import { FONTS } from '../../constants/fonts'
 import { COLORS } from '../../constants/colors'
+// import { BREAKPOINTS } from '../../utils/breakpoints'
 
 export const Root = {
   Container: styled.div`
-    margin: 0 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (min-width: 912px) and (max-width: 1000px) {
+      margin: 0 3rem;
+    }
+    @media screen and (min-width: 1000px) and (max-width: 1400px) {
+      margin: 0 8rem;
+    }
   `,
   ProductContainer: styled.div`
     display: flex;
-    min-height: 100vh;
+    flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+    @media screen and (min-width: 300px) and (max-width: 768px) {
+      padding: 0 0 20px 0;
+    }
+    @media screen and (min-width: 769px) and (max-width: 911px) {
+      padding: 20px 0;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      flex-direction: row;
+      padding: 20px 0;
+    }
   `,
   ImagesContainer: styled.div`
     flex: 1;
+    margin: 0 0 2rem 0;
     display: flex;
-    justify-content: center;
-    img {
-      border-radius: 15px;
-      margin: auto 0px;
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      margin: 2rem 0;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1279px) {
+      flex-direction: column;
+      margin: 0;
     }
   `,
+  BigImageContainer: styled.div`
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    @media screen and (min-width: 481px) and (max-width: 768px) {
+      margin: 0 5rem;
+      img {
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin: 0 5rem;
+      img {
+        border-radius: 15px;
+      }
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin: 0;
+      img {
+        border-radius: 15px;
+      }
+    }
+  `,
+  ThumbnailContainer: styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 35px;
+    display: none;
+  `,
+  Thumbnails: styled.div``,
   InfoContainer: styled.div`
     flex: 1;
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 1rem;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin: 0 2rem;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin: 0 3rem;
+    }
   `,
   SmallText: styled.p`
     font-family: ${FONTS.KUMBH_SANS};
@@ -39,6 +99,9 @@ export const Root = {
     font-family: ${FONTS.KUMBH_SANS};
     font-size: 40px;
     margin-bottom: 22px;
+    @media screen and (min-width: 300px) and (max-width: 480px) {
+      font-size: 30px;
+    }
   `,
   ProductInfo: styled.p`
     font-family: ${FONTS.KUMBH_SANS};
@@ -73,17 +136,23 @@ export const Root = {
   `,
   ButtonContainer: styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-top: 25px;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 20px;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      flex-direction: row;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      flex-direction: row;
+    }
   `,
   Buttons: styled.div`
     flex: 1;
     display: flex;
-    height: 50px;
-    width: 130px;
     border-radius: 10px;
     background-color: hsl(223, 64%, 98%);
+    width: 100%;
   `,
   Count: styled.div`
     display: flex;
@@ -112,12 +181,14 @@ export const Root = {
     outline: none;
     background-color: transparent;
     cursor: pointer;
+    padding: 20px 0;
   `,
   AddToCart: styled.button`
     flex: 2;
     background-color: ${COLORS.ORANGE};
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 50px;
     margin: 0 13px;
     border-radius: 12px;
     border: none;
@@ -126,5 +197,13 @@ export const Root = {
     font-weight: 800;
     color: white;
     cursor: pointer;
+    padding: 17px 0;
+    margin-top: 18px;
+    @media screen and (min-width: 769px) and (max-width: 912px) {
+      margin-top: 0;
+    }
+    @media screen and (min-width: 912px) and (max-width: 1400px) {
+      margin-top: 0;
+    }
   `
 }
