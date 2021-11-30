@@ -6,9 +6,11 @@ import Image from 'next/image'
 import BigImage from '../public/image-product-1.jpg'
 import { ButtonGroup } from '../components/Pages/ButtonGroup'
 import { Thumbnails } from '../components/Pages/Thumbnail'
+import { Lightbox } from '../components/Pages/Lightbox'
 
 const Home: NextPage = () => {
   const [count, setCount] = useState(0)
+  const [isLightbox, setisLightBox] = useState(false)
 
   return (
     <Root.Container>
@@ -16,12 +18,21 @@ const Home: NextPage = () => {
         <title> Sneakers | A new walk of life </title>
       </Head>
 
+      {isLightbox && <Lightbox setIsLightBox={setisLightBox} />}
+
       <Root.ProductContainer>
         <Root.ImagesContainer>
           <Root.BigImageContainer>
-            <Image src={BigImage} layout="intrinsic" height={400} width={400} alt='Product 1' />
+            <Image
+              src={BigImage}
+              layout='intrinsic'
+              height={400}
+              width={400}
+              alt='Product 1'
+              onClick={() => setisLightBox((prev) => !prev)}
+            />
           </Root.BigImageContainer>
-          <Thumbnails/>
+          <Thumbnails />
         </Root.ImagesContainer>
         <Root.InfoContainer>
           <Root.SmallText> Sneaker Company </Root.SmallText>

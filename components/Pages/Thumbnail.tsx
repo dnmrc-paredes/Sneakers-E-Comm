@@ -8,10 +8,10 @@ export const Thumbnails = () => {
     <Root.ThumbnailContainer>
       {IMAGES.map(({ src, name }) => {
         return (
-          // <Root.Thumbnails key={name}>
-          //   <Image src={`/${src}`} alt={name} height={90} width={90} />
-          // </Root.Thumbnails>
-          <Image key={name} src={`/${src}`} alt={name} height={90} width={90} />
+          <Root.Thumbnails key={name}>
+            <Image src={`/${src}`} alt={name} height={90} width={90} />
+          </Root.Thumbnails>
+          // <Image key={name} src={`/${src}`} alt={name} height={90} width={90} />
         )
       })}
     </Root.ThumbnailContainer>
