@@ -36,6 +36,8 @@ export const Root = {
     margin: 60px 0 2rem 0;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     @media screen and (min-width: 481px) and (max-width: 768px) {
       margin: 2rem 0;
     }
@@ -71,7 +73,7 @@ export const Root = {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 23px;
     img {
       border-radius: 15px;
     }

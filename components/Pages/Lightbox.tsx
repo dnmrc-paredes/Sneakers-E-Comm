@@ -1,7 +1,9 @@
 import { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { COLORS } from '../../constants/colors'
+import { Root } from './index'
 import Image from 'next/image'
+import { Thumbnails } from './Thumbnail'
 import BigImage1 from '../../public/image-product-1.jpg'
 import PreviousImg from '../../public/icon-previous.svg'
 import NextImg from '../../public/icon-next.svg'
@@ -25,7 +27,6 @@ const Base = {
   Container: styled.div``,
   CloseButton: styled.div`
     display: flex;
-    margin-bottom: 10px;
     justify-content: flex-end;
     cursor: pointer;
   `,
@@ -33,6 +34,9 @@ const Base = {
     position: relative;
     img {
       border-radius: 15px;
+    }
+    @media screen and (min-width: 0px) and (max-width: 500px) {
+      margin: 25px;
     }
   `,
   PrevButton: styled.div`
@@ -71,18 +75,21 @@ export const Lightbox = ({ setIsLightBox }: LightBoxProps) => {
   return (
     <Base.Root>
       <Base.Container>
-        <Base.CloseButton onClick={() => setIsLightBox(prev => !prev)}>
-          <Image color={COLORS.ORANGE} src={CloseImg} alt="close" />
+        <Base.CloseButton onClick={() => setIsLightBox((prev) => !prev)}>
+          <Image color={COLORS.ORANGE} src={CloseImg} alt='close' />
         </Base.CloseButton>
-        <Base.BigImage>
-          <Base.PrevButton>
-            <Image height={18} width={18} src={PreviousImg} alt='prev' />
-          </Base.PrevButton>
-          <Image src={BigImage1} height={400} width={400} alt='Image 1' />
-          <Base.NextButton>
-            <Image height={18} width={18} src={NextImg} alt='next' />
-          </Base.NextButton>
-        </Base.BigImage>
+        <Root.ImagesContainer>
+          <Base.BigImage>
+            <Base.PrevButton>
+              <Image height={18} width={18} src={PreviousImg} alt='prev' />
+            </Base.PrevButton>
+            <Image src={BigImage1} height={400} width={400} alt='Product 1' />
+            <Base.NextButton>
+              <Image height={18} width={18} src={NextImg} alt='next' />
+            </Base.NextButton>
+          </Base.BigImage>
+          <Thumbnails />
+        </Root.ImagesContainer>
       </Base.Container>
     </Base.Root>
   )

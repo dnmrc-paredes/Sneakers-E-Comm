@@ -11,7 +11,6 @@ export const Thumbnails = () => {
           <Root.Thumbnails key={name}>
             <Image src={`/${src}`} alt={name} height={90} width={90} />
           </Root.Thumbnails>
-          // <Image key={name} src={`/${src}`} alt={name} height={90} width={90} />
         )
       })}
     </Root.ThumbnailContainer>
