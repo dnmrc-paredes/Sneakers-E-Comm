@@ -16,7 +16,7 @@ export const Thumbnails = ({ setImage, image }: ThumbnailProps) => {
         return (
           <Root.Thumbnails
             className={(activeImage === image ? 'active' : '')}
-            onClick={() => setImage((index += 1))}
+            onClick={() => setImage(activeImage)}
             key={name}
           >
             <Image src={`/${src}`} alt={name} height={90} width={90} />

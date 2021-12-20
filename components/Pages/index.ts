@@ -52,6 +52,11 @@ export const BigImageContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  
+  img {
+    cursor: pointer;
+  }
+
   @media screen and (min-width: 481px) and (max-width: 768px) {
     margin: 0 5rem;
     img {

@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
-import { COLORS } from '../../constants/colors'
 import * as Root from './index'
 import Image from 'next/image'
 import { Thumbnails } from './Thumbnail'
@@ -91,7 +90,7 @@ export const Lightbox = ({ setIsLightBox, setImage, image }: LightBoxProps) => {
     <Base.Root>
       <Base.Container>
         <Base.CloseButton onClick={() => setIsLightBox((prev) => !prev)}>
-          <Image color={COLORS.ORANGE} src={CloseImg} alt='close' />
+          <Image src={CloseImg} alt='close' />
         </Base.CloseButton>
         <Root.ImagesContainer>
           <Base.BigImage>
