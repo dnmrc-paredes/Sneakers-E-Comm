@@ -1,5 +1,5 @@
 import React from 'react'
-import { S } from './Navbar.styles'
+import * as S from './Navbar.styles'
 import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
 import Image from 'next/image'
