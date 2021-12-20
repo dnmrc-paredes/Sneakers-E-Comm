@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import type { NextPage } from 'next'
-import { Root } from '../components/Pages'
+import * as Root from '../components/Pages'
 import Head from 'next/head'
 import Image from 'next/image'
 import { ButtonGroup } from '../components/Pages/ButtonGroup'
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
             the weather can offer.
           </Root.ProductInfo>
           <Root.Price>
-            $125.00 <span> 50% </span>
+            $125.00 <span className='discount'> 50% </span>
           </Root.Price>
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>

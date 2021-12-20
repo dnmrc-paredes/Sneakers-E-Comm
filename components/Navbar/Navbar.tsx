@@ -1,17 +1,17 @@
 import React from 'react'
-import { S } from './Navbar.styles'
+import * as S from './Navbar.styles'
 import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
 import Image from 'next/image'
 import Avatar from '../../public/image-avatar.png'
 import Logo from '../../public/logo.svg'
 import { IoMenu } from 'react-icons/io5'
-import { useWidth } from '../../hooks/getWidth'
+import { useWindow } from '../../hooks/useWindow'
 
 export const Navbar = () => {
-  const width = useWidth()
+  const width = useWindow()
 
-  const isSmall = () => width < 761
+  const isSmall = () => (width.width as number) < 761
 
   return (
     <S.Container>
