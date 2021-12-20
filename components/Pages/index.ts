@@ -38,12 +38,15 @@ export const Root = {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    @media screen and (min-width: 481px) and (max-width: 768px) {
+    @media screen and (min-width: 0px) and (max-width: 650px) {
+      margin: 0 0 2rem 0;
+    }
+    @media screen and (min-width: 651px) and (max-width: 911px) {
       margin: 2rem 0;
     }
     @media screen and (min-width: 912px) and (max-width: 1279px) {
       flex-direction: column;
-      margin: 0;
+      margin: 2rem 0;
     }
   `,
   BigImageContainer: styled.div`

@@ -3,13 +3,13 @@ import type { NextPage } from 'next'
 import { Root } from '../components/Pages'
 import Head from 'next/head'
 import Image from 'next/image'
-import BigImage from '../public/image-product-1.jpg'
 import { ButtonGroup } from '../components/Pages/ButtonGroup'
 import { Thumbnails } from '../components/Pages/Thumbnail'
 import { Lightbox } from '../components/Pages/Lightbox'
 
 const Home: NextPage = () => {
   const [count, setCount] = useState(0)
+  const [image, setImage] = useState(1)
   const [isLightbox, setisLightBox] = useState(false)
 
   return (
@@ -18,13 +18,19 @@ const Home: NextPage = () => {
         <title> Sneakers | A new walk of life </title>
       </Head>
 
-      {isLightbox && <Lightbox setIsLightBox={setisLightBox} />}
+      {isLightbox && (
+        <Lightbox
+          image={image}
+          setImage={setImage}
+          setIsLightBox={setisLightBox}
+        />
+      )}
 
       <Root.ProductContainer>
         <Root.ImagesContainer>
           <Root.BigImageContainer>
             <Image
-              src={BigImage}
+              src={`/image-product-${image}.jpg`}
               layout='intrinsic'
               height={400}
               width={400}
@@ -32,7 +38,7 @@ const Home: NextPage = () => {
               onClick={() => setisLightBox((prev) => !prev)}
             />
           </Root.BigImageContainer>
-          <Thumbnails />
+          <Thumbnails setImage={setImage} image={image} />
         </Root.ImagesContainer>
         <Root.InfoContainer>
           <Root.SmallText> Sneaker Company </Root.SmallText>

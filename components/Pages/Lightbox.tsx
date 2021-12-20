@@ -4,7 +4,6 @@ import { COLORS } from '../../constants/colors'
 import { Root } from './index'
 import Image from 'next/image'
 import { Thumbnails } from './Thumbnail'
-import BigImage1 from '../../public/image-product-1.jpg'
 import PreviousImg from '../../public/icon-previous.svg'
 import NextImg from '../../public/icon-next.svg'
 import CloseImg from '../../public/icon-close.svg'
@@ -29,6 +28,13 @@ const Base = {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
+    @media screen and (min-width: 0px) and (max-width: 500px) {
+      margin: 0 20px;
+      margin-bottom: 10px;
+    }
+    @media screen and (min-width: 500px) and (max-width: 650px) {
+      margin-bottom: 10px;
+    }
   `,
   BigImage: styled.div`
     position: relative;
@@ -36,7 +42,7 @@ const Base = {
       border-radius: 15px;
     }
     @media screen and (min-width: 0px) and (max-width: 500px) {
-      margin: 25px;
+      margin: 0 25px;
     }
   `,
   PrevButton: styled.div`
@@ -69,9 +75,18 @@ const Base = {
 
 type LightBoxProps = {
   setIsLightBox: Dispatch<SetStateAction<boolean>>
+  setImage: Dispatch<SetStateAction<number>>
+  image: number
 }
 
-export const Lightbox = ({ setIsLightBox }: LightBoxProps) => {
+export const Lightbox = ({ setIsLightBox, setImage, image }: LightBoxProps) => {
+  const prev = () => {
+    setImage((curr) => (curr === 1 ? 4 : (curr -= 1)))
+  }
+  const next = () => {
+    setImage((curr) => (curr === 4 ? 1 : (curr += 1)))
+  }
+
   return (
     <Base.Root>
       <Base.Container>
@@ -80,15 +95,20 @@ export const Lightbox = ({ setIsLightBox }: LightBoxProps) => {
         </Base.CloseButton>
         <Root.ImagesContainer>
           <Base.BigImage>
-            <Base.PrevButton>
+            <Base.PrevButton onClick={prev}>
               <Image height={18} width={18} src={PreviousImg} alt='prev' />
             </Base.PrevButton>
-            <Image src={BigImage1} height={400} width={400} alt='Product 1' />
-            <Base.NextButton>
+            <Image
+              src={`/image-product-${image}.jpg`}
+              height={400}
+              width={400}
+              alt='Product 1'
+            />
+            <Base.NextButton onClick={next}>
               <Image height={18} width={18} src={NextImg} alt='next' />
             </Base.NextButton>
           </Base.BigImage>
-          <Thumbnails />
+          <Thumbnails image={image} setImage={setImage} />
         </Root.ImagesContainer>
       </Base.Container>
     </Base.Root>
