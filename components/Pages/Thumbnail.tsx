@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
-import { Root } from './index'
+import * as Root from './index'
 import { IMAGES } from '../../data/images'
 
 type ThumbnailProps = {
@@ -8,12 +8,17 @@ type ThumbnailProps = {
   image: number
 }
 
-export const Thumbnails = ({ setImage }: ThumbnailProps) => {
+export const Thumbnails = ({ setImage, image }: ThumbnailProps) => {
   return (
     <Root.ThumbnailContainer>
       {IMAGES.map(({ src, name }, index) => {
+        const activeImage = index + 1
         return (
-          <Root.Thumbnails onClick={() => setImage(index+=1)} key={name}>
+          <Root.Thumbnails
+            className={(activeImage === image ? 'active' : '')}
+            onClick={() => setImage((index += 1))}
+            key={name}
+          >
             <Image src={`/${src}`} alt={name} height={90} width={90} />
           </Root.Thumbnails>
         )

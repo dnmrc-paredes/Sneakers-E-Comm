@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { COLORS } from '../../constants/colors'
-import { Root } from './index'
+import * as Root from './index'
 import Image from 'next/image'
 import { Thumbnails } from './Thumbnail'
 import PreviousImg from '../../public/icon-previous.svg'

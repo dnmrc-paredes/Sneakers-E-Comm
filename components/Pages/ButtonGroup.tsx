@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
-import { Root } from './index'
+import * as Root from './index'
 import PlusIcon from '../../public/icon-plus.svg'
 import MinusIcon from '../../public/icon-minus.svg'
 
