@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as S from './Navbar.styles'
 import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
+import { Cart } from '../Pages/Cart'
 import Image from 'next/image'
 import Avatar from '../../public/image-avatar.png'
 import Logo from '../../public/logo.svg'
@@ -9,6 +10,7 @@ import { IoMenu } from 'react-icons/io5'
 import { useWindow } from '../../hooks/useWindow'
 
 export const Navbar = () => {
+  const [cart, setCart] = useState(false)
   const width = useWindow()
 
   const isSmall = () => (width.width as number) < 761
@@ -30,7 +32,8 @@ export const Navbar = () => {
       </S.Links>
       <S.CartAndProfile>
         <S.CartImage>
-          <IoCartOutline size={25} />
+          <IoCartOutline onClick={() => setCart(prev => !prev)} size={25} />
+          {cart ? <Cart /> : null}
         </S.CartImage>
         <S.ProfileImage>
           <Image
