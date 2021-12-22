@@ -78,7 +78,6 @@ export const CartAndProfile = styled.div`
 export const CartImage = styled.div`
   margin-right: 2rem;
   position: relative;
-  cursor: pointer;
   @media screen and (min-width: 300px) and (max-width: 761px) {
     margin-right: 1.3rem;
   }

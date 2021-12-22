@@ -5,6 +5,30 @@ import { MdOutlineDelete } from 'react-icons/md'
 const Base = {
   Root: styled.div`
     position: absolute;
+    width: 340px;
+    top: 50px;
+    right: -120px;
+    box-shadow: 0px 1px 120px 1px #c4c3c3;
+    z-index: 10;
+    border-radius: 8px;
+    @media screen and (min-width: 300px) and (max-width: 550px) {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: none;
+      width: 100%;
+      height: max-content;
+      /* width: max-content; */
+    }
+    @media screen and (min-width: 551px) and (max-width: 768px) {
+      right: -20px;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1000px) {
+      right: -60px;
+    }
+    /* position: absolute;
     top: -40px;
     transform: translate(-50%, 50%);
     z-index: 3;
@@ -14,6 +38,28 @@ const Base = {
     background-color: white;
     flex-direction: column;
     overflow: hidden;
+    @media screen and (min-width: 300px) and (max-width: 550px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      transform: none;
+      width: 100%;
+    }
+    @media screen and (min-width: 551px) and (max-width: 768px) {
+      left: -120px;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1000px) {
+      left: -60px;
+    } */
+  `,
+  SubRoot: styled.div`
+    border-radius: 8px;
+    background-color: white;
+    @media screen and (min-width: 300px) and (max-width: 550px) {
+      margin: 1rem;
+    }
   `,
   TitleContainer: styled.div`
     flex: 1;
@@ -35,6 +81,10 @@ const Base = {
   `,
   Item: styled.div`
     display: flex;
+
+    img {
+      border-radius: 5px;
+    }
   `,
   ImageContainer: styled.div`
     flex: 1;
@@ -45,12 +95,11 @@ const Base = {
     margin-left: 10px;
     display: flex;
     justify-content: center;
-
     .info {
+      flex: 1;
       display: flex;
       justify-content: center;
       flex-direction: column;
-      background-color: yellow;
 
       h4,
       p {
@@ -63,44 +112,56 @@ const Base = {
       }
     }
     .delete {
-      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: red;
+      margin-left: 10px;
     }
+  `,
+  Button: styled.button`
+    background-color: ${({ theme }) => theme.colors.orange};
+    height: 50px;
+    width: 90%;
+    margin: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    font-family: ${({ theme }) => theme.fonts.kumbh};
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
   `
 }
 
 export const Cart = () => {
   return (
     <Base.Root>
-      <Base.TitleContainer>
-        <h4> Cart </h4>
-      </Base.TitleContainer>
-      <Base.ItemsContainer>
-        <Base.Item>
-          <Base.ImageContainer>
+      <Base.SubRoot>
+        <Base.TitleContainer>
+          <h4> Cart </h4>
+        </Base.TitleContainer>
+        <Base.ItemsContainer>
+          <Base.Item>
             <Image
               src='/image-product-1-thumbnail.jpg'
               width={50}
               height={50}
               alt='product'
             />
-          </Base.ImageContainer>
-          <Base.Info>
-            <div className='info'>
-              <h4> Fall Limited Edition Sneakers </h4>
-              <p>
-                $125.00 x 3 <span> $400.00 </span>
-              </p>
-            </div>
-            <div className='delete'>
-              <MdOutlineDelete size={20} />
-            </div>
-          </Base.Info>
-        </Base.Item>
-      </Base.ItemsContainer>
+            <Base.Info>
+              <div className='info'>
+                <h4> Fall Limited Edition Sneakers </h4>
+                <p>
+                  $125.00 x 3 <span> $400.00 </span>
+                </p>
+              </div>
+              <div className='delete'>
+                <MdOutlineDelete color='grey' size={20} />
+              </div>
+            </Base.Info>
+          </Base.Item>
+        </Base.ItemsContainer>
+        <Base.Button>Checkout</Base.Button>
+      </Base.SubRoot>
     </Base.Root>
   )
 }
