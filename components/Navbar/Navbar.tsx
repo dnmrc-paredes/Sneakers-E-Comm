@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import * as S from './Navbar.styles'
 import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
@@ -10,10 +10,11 @@ import { IoMenu } from 'react-icons/io5'
 import { useWindow } from '../../hooks/useWindow'
 
 type NavbarProps = {
-  count: number
+  cartItems: number
+  setCartItems: Dispatch<SetStateAction<number>>
 }
 
-export const Navbar = ({ count }: NavbarProps) => {
+export const Navbar = ({ cartItems, setCartItems }: NavbarProps) => {
   const [cart, setCart] = useState(false)
   const width = useWindow()
 
@@ -41,7 +42,7 @@ export const Navbar = ({ count }: NavbarProps) => {
             onClick={() => setCart((prev) => !prev)}
             size={25}
           />
-          {cart ? <Cart count={count} /> : null}
+          {cart ? <Cart setCartItems={setCartItems} cartItems={cartItems} /> : null}
         </S.CartImage>
         <S.ProfileImage>
           <Image

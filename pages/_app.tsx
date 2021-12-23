@@ -7,12 +7,19 @@ import { Theme } from '../styles/theme/Theme'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [count, setCount] = useState(0)
+  const [cartItems, setCartItems] = useState(0)
 
   return (
     <>
       <ThemeProvider theme={Theme}>
-        <Navbar count={count} />
-        <Component count={count} setCount={setCount} {...pageProps} />
+        <Navbar setCartItems={setCartItems} cartItems={cartItems} />
+        <Component
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          count={count}
+          setCount={setCount}
+          {...pageProps}
+        />
       </ThemeProvider>
     </>
   )

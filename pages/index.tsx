@@ -9,11 +9,12 @@ import { Lightbox } from '../components/Pages/Lightbox'
 
 type HomeProps = {
   count: number
+  cartItems: number
   setCount: Dispatch<SetStateAction<number>>
+  setCartItems: Dispatch<SetStateAction<number>>
 }
 
-const Home: NextPage<HomeProps> = ({ count, setCount }) => {
-  // const [count, setCount] = useState(0)
+const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
   const [image, setImage] = useState(1)
   const [isLightbox, setisLightBox] = useState(false)
 
@@ -59,7 +60,7 @@ const Home: NextPage<HomeProps> = ({ count, setCount }) => {
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>
             <ButtonGroup setCount={setCount} count={count} />
-            <Root.AddToCart>Add to cart</Root.AddToCart>
+            <Root.AddToCart onClick={() => setCartItems(count)} >Add to cart</Root.AddToCart>
           </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>

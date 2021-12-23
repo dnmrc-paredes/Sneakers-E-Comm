@@ -1,3 +1,4 @@
+import React, { Dispatch, SetStateAction } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import { MdOutlineDelete } from 'react-icons/md'
@@ -54,6 +55,12 @@ const Base = {
     display: flex;
     padding: 1rem 0;
     margin: 0.5rem 1rem;
+
+    h4 {
+      margin: auto;
+      font-family: ${({ theme }) => theme.fonts.kumbh};
+      color: ${({ theme }) => theme.colors.light_gray};
+    }
   `,
   Item: styled.div`
     display: flex;
@@ -112,10 +119,11 @@ const Base = {
 }
 
 type CartProps = {
-  count: number
+  cartItems: number
+  setCartItems: Dispatch<SetStateAction<number>>
 }
 
-export const Cart = ({ count }: CartProps) => {
+export const Cart = ({ cartItems, setCartItems }: CartProps) => {
   return (
     <Base.Root>
       <Base.SubRoot>
@@ -123,25 +131,33 @@ export const Cart = ({ count }: CartProps) => {
           <h4> Cart </h4>
         </Base.TitleContainer>
         <Base.ItemsContainer>
-          { count ? <Base.Item>
-            <Image
-              src='/image-product-1-thumbnail.jpg'
-              width={50}
-              height={50}
-              alt='product'
-            />
-            <Base.Info>
-              <div className='info'>
-                <h4> Fall Limited Edition Sneakers </h4>
-                <p>
-                  $125.00 x {count} <span> ${125.00 * count} </span>
-                </p>
-              </div>
-              <div className='delete'>
-                <MdOutlineDelete color='grey' size={20} />
-              </div>
-            </Base.Info>
-          </Base.Item> : null }
+          {cartItems ? (
+            <Base.Item>
+              <Image
+                src='/image-product-1-thumbnail.jpg'
+                width={50}
+                height={50}
+                alt='product'
+              />
+              <Base.Info>
+                <div className='info'>
+                  <h4> Fall Limited Edition Sneakers </h4>
+                  <p>
+                    $125.00 x {cartItems} <span> ${125.0 * cartItems} </span>
+                  </p>
+                </div>
+                <div className='delete'>
+                  <MdOutlineDelete
+                    onClick={() => setCartItems(0)}
+                    color='grey'
+                    size={20}
+                  />
+                </div>
+              </Base.Info>
+            </Base.Item>
+          ) : (
+            <h4> Your cart is empty </h4>
+          )}
         </Base.ItemsContainer>
         <Base.Button>Checkout</Base.Button>
       </Base.SubRoot>
