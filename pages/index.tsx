@@ -60,7 +60,10 @@ const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>
             <ButtonGroup setCount={setCount} count={count} />
-            <Root.AddToCart onClick={() => setCartItems(count)} >Add to cart</Root.AddToCart>
+            <Root.AddToCart onClick={() => {
+              setCartItems((prev) => (prev += count))
+              setCount(0)
+            }} >Add to cart</Root.AddToCart>
           </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>

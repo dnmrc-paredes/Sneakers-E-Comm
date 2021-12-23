@@ -71,7 +71,6 @@ const Base = {
   `,
   ImageContainer: styled.div`
     flex: 1;
-    background-color: green;
   `,
   Info: styled.div`
     flex: 2;
@@ -151,6 +150,7 @@ export const Cart = ({ cartItems, setCartItems }: CartProps) => {
                     onClick={() => setCartItems(0)}
                     color='grey'
                     size={20}
+                    style={{ cursor: 'pointer' }}
                   />
                 </div>
               </Base.Info>
