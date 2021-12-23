@@ -9,7 +9,7 @@ const Base = {
     width: 340px;
     top: 50px;
     right: -120px;
-    box-shadow: 0px 1px 120px 1px #c4c3c3;
+    box-shadow: 2px 10px 34px -2px rgba(191, 191, 191, 0.75);
     z-index: 10;
     border-radius: 8px;
     @media screen and (min-width: 300px) and (max-width: 550px) {
@@ -37,6 +37,7 @@ const Base = {
     @media screen and (min-width: 300px) and (max-width: 550px) {
       margin: 20px 10px;
       background-color: white;
+      box-shadow: 2px 10px 34px -2px rgba(97, 97, 97, 0.75);
     }
   `,
   TitleContainer: styled.div`
