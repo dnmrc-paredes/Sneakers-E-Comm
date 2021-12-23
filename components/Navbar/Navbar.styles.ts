@@ -6,6 +6,10 @@ export const Container = styled.div`
   align-items: center;
   border-bottom: lightgray solid 1px;
   margin: 0 8rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: white;
   @media screen and (min-width: 300px) and (max-width: 768px) {
     margin: 0;
     height: 70px;

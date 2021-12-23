@@ -36,6 +36,7 @@ const Base = {
     background-color: white;
     @media screen and (min-width: 300px) and (max-width: 550px) {
       margin: 20px 10px;
+      background-color: white;
     }
   `,
   TitleContainer: styled.div`
