@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import type { NextPage } from 'next'
 import * as Root from '../components/Pages'
 import Head from 'next/head'
@@ -7,8 +7,14 @@ import { ButtonGroup } from '../components/Pages/ButtonGroup'
 import { Thumbnails } from '../components/Pages/Thumbnail'
 import { Lightbox } from '../components/Pages/Lightbox'
 
-const Home: NextPage = () => {
-  const [count, setCount] = useState(0)
+type HomeProps = {
+  count: number
+  cartItems: number
+  setCount: Dispatch<SetStateAction<number>>
+  setCartItems: Dispatch<SetStateAction<number>>
+}
+
+const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
   const [image, setImage] = useState(1)
   const [isLightbox, setisLightBox] = useState(false)
 
@@ -54,7 +60,10 @@ const Home: NextPage = () => {
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>
             <ButtonGroup setCount={setCount} count={count} />
-            <Root.AddToCart>Add to cart</Root.AddToCart>
+            <Root.AddToCart onClick={() => {
+              setCartItems((prev) => (prev += count))
+              setCount(0)
+            }} >Add to cart</Root.AddToCart>
           </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>
