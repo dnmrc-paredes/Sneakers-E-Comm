@@ -20,6 +20,7 @@ const Base = {
       transform: none;
       width: 100%;
       height: max-content;
+      box-shadow: none;
       /* width: max-content; */
     }
     @media screen and (min-width: 551px) and (max-width: 768px) {
@@ -28,37 +29,12 @@ const Base = {
     @media screen and (min-width: 769px) and (max-width: 1000px) {
       right: -60px;
     }
-    /* position: absolute;
-    top: -40px;
-    transform: translate(-50%, 50%);
-    z-index: 3;
-    width: 340px;
-    box-shadow: 0px 1px 50px 1px #c4c3c3;
-    border-radius: 8px;
-    background-color: white;
-    flex-direction: column;
-    overflow: hidden;
-    @media screen and (min-width: 300px) and (max-width: 550px) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      transform: none;
-      width: 100%;
-    }
-    @media screen and (min-width: 551px) and (max-width: 768px) {
-      left: -120px;
-    }
-    @media screen and (min-width: 769px) and (max-width: 1000px) {
-      left: -60px;
-    } */
   `,
   SubRoot: styled.div`
     border-radius: 8px;
     background-color: white;
     @media screen and (min-width: 300px) and (max-width: 550px) {
-      margin: 1rem;
+      margin: 20px 10px;
     }
   `,
   TitleContainer: styled.div`
@@ -126,13 +102,20 @@ const Base = {
     border: none;
     outline: none;
     font-family: ${({ theme }) => theme.fonts.kumbh};
+    font-weight: 700;
+    letter-spacing: 1px;
     color: white;
+    cursor: pointer;
     border-radius: 10px;
     margin-bottom: 15px;
   `
 }
 
-export const Cart = () => {
+type CartProps = {
+  count: number
+}
+
+export const Cart = ({ count }: CartProps) => {
   return (
     <Base.Root>
       <Base.SubRoot>
@@ -140,7 +123,7 @@ export const Cart = () => {
           <h4> Cart </h4>
         </Base.TitleContainer>
         <Base.ItemsContainer>
-          <Base.Item>
+          { count ? <Base.Item>
             <Image
               src='/image-product-1-thumbnail.jpg'
               width={50}
@@ -151,14 +134,14 @@ export const Cart = () => {
               <div className='info'>
                 <h4> Fall Limited Edition Sneakers </h4>
                 <p>
-                  $125.00 x 3 <span> $400.00 </span>
+                  $125.00 x {count} <span> ${125.00 * count} </span>
                 </p>
               </div>
               <div className='delete'>
                 <MdOutlineDelete color='grey' size={20} />
               </div>
             </Base.Info>
-          </Base.Item>
+          </Base.Item> : null }
         </Base.ItemsContainer>
         <Base.Button>Checkout</Base.Button>
       </Base.SubRoot>

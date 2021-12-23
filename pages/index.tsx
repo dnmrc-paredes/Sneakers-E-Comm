@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Dispatch, SetStateAction } from 'react'
 import type { NextPage } from 'next'
 import * as Root from '../components/Pages'
 import Head from 'next/head'
@@ -7,8 +7,13 @@ import { ButtonGroup } from '../components/Pages/ButtonGroup'
 import { Thumbnails } from '../components/Pages/Thumbnail'
 import { Lightbox } from '../components/Pages/Lightbox'
 
-const Home: NextPage = () => {
-  const [count, setCount] = useState(0)
+type HomeProps = {
+  count: number
+  setCount: Dispatch<SetStateAction<number>>
+}
+
+const Home: NextPage<HomeProps> = ({ count, setCount }) => {
+  // const [count, setCount] = useState(0)
   const [image, setImage] = useState(1)
   const [isLightbox, setisLightBox] = useState(false)
 

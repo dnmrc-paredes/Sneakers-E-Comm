@@ -9,7 +9,11 @@ import Logo from '../../public/logo.svg'
 import { IoMenu } from 'react-icons/io5'
 import { useWindow } from '../../hooks/useWindow'
 
-export const Navbar = () => {
+type NavbarProps = {
+  count: number
+}
+
+export const Navbar = ({ count }: NavbarProps) => {
   const [cart, setCart] = useState(false)
   const width = useWindow()
 
@@ -32,8 +36,12 @@ export const Navbar = () => {
       </S.Links>
       <S.CartAndProfile>
         <S.CartImage>
-          <IoCartOutline onClick={() => setCart(prev => !prev)} size={25} />
-          {cart ? <Cart /> : null}
+          <IoCartOutline
+            style={{ cursor: 'pointer' }}
+            onClick={() => setCart((prev) => !prev)}
+            size={25}
+          />
+          {cart ? <Cart count={count} /> : null}
         </S.CartImage>
         <S.ProfileImage>
           <Image
