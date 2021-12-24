@@ -12,9 +12,14 @@ import { useWindow } from '../../hooks/useWindow'
 type NavbarProps = {
   cartItems: number
   setCartItems: Dispatch<SetStateAction<number>>
+  setShowMenu: Dispatch<SetStateAction<boolean>>
 }
 
-export const Navbar = ({ cartItems, setCartItems }: NavbarProps) => {
+export const Navbar = ({
+  cartItems,
+  setCartItems,
+  setShowMenu
+}: NavbarProps) => {
   const [cart, setCart] = useState(false)
   const width = useWindow()
 
@@ -24,7 +29,11 @@ export const Navbar = ({ cartItems, setCartItems }: NavbarProps) => {
     <S.Container>
       <S.Logo>
         {isSmall() ? (
-          <IoMenu style={{ marginRight: '20px' }} size={35} />
+          <IoMenu
+            onClick={() => setShowMenu(prev => !prev)}
+            style={{ marginRight: '20px', cursor: 'pointer' }}
+            size={35}
+          />
         ) : null}
         <Image layout='fixed' src={Logo} height={20} width={140} alt='Logo' />
       </S.Logo>
@@ -39,10 +48,12 @@ export const Navbar = ({ cartItems, setCartItems }: NavbarProps) => {
         <S.CartImage>
           <IoCartOutline
             style={{ cursor: 'pointer' }}
-            onClick={() => setCart((prev) => !prev)}
+            onClick={() => setCart(prev => !prev)}
             size={25}
           />
-          {cart ? <Cart setCartItems={setCartItems} cartItems={cartItems} /> : null}
+          {cart ? (
+            <Cart setCartItems={setCartItems} cartItems={cartItems} />
+          ) : null}
         </S.CartImage>
         <S.ProfileImage>
           <Image
