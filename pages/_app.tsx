@@ -5,16 +5,24 @@ import { ThemeProvider } from 'styled-components'
 import { Navbar } from '../components/Navbar/Navbar'
 import { Sidebar } from '../components/Sidebar/Sidebar'
 import { Theme } from '../styles/theme/Theme'
+import { useWindow } from '../hooks/useWindow'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const window = useWindow()
   const [count, setCount] = useState(0)
   const [cartItems, setCartItems] = useState(0)
+  const [showMenu, setShowMenu] = useState(false)
+  const isMobile = (window.width as number) < 762
 
   return (
     <>
       <ThemeProvider theme={Theme}>
-        <Sidebar />
-        <Navbar setCartItems={setCartItems} cartItems={cartItems} />
+        {isMobile && showMenu ? <Sidebar setShowMenu={setShowMenu} /> : null}
+        <Navbar
+          setShowMenu={setShowMenu}
+          setCartItems={setCartItems}
+          cartItems={cartItems}
+        />
         <Component
           cartItems={cartItems}
           setCartItems={setCartItems}
