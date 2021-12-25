@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import Image from 'next/image'
-import * as Root from './index'
-import { IMAGES } from '../../data/images'
+import * as Root from '../index'
+import { IMAGES } from '../../../data/images'
 
 type ThumbnailProps = {
   setImage: Dispatch<SetStateAction<number>>

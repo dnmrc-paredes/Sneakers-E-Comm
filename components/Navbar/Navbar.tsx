@@ -2,7 +2,7 @@ import React, { useState, Dispatch, SetStateAction } from 'react'
 import * as S from './Navbar.styles'
 import Link from 'next/link'
 import { IoCartOutline } from 'react-icons/io5'
-import { Cart } from '../Pages/Cart'
+import { Cart } from '../Pages/Cart/Cart'
 import Image from 'next/image'
 import Avatar from '../../public/image-avatar.png'
 import Logo from '../../public/logo.svg'
@@ -56,12 +56,14 @@ export const Navbar = ({
           ) : null}
         </S.CartImage>
         <S.ProfileImage>
-          <Image
-            height={isSmall() ? 30 : 45}
-            width={isSmall() ? 30 : 45}
-            src={Avatar}
-            alt='Profile'
-          />
+          <S.Holder>
+            <Image
+              height={isSmall() ? 30 : 45}
+              width={isSmall() ? 30 : 45}
+              src={Avatar}
+              alt='Profile'
+            />
+          </S.Holder>
         </S.ProfileImage>
       </S.CartAndProfile>
     </S.Container>

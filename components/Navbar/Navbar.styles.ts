@@ -89,3 +89,16 @@ export const CartImage = styled.div`
 `
 
 export const ProfileImage = styled.div``
+
+export const Holder = styled.div`
+  border: solid transparent 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  cursor: pointer;
+
+  &:hover {
+    border: solid ${({ theme }) => theme.colors.orange} 2px;
+  }
+`

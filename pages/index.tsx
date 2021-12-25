@@ -3,9 +3,9 @@ import type { NextPage } from 'next'
 import * as Root from '../components/Pages'
 import Head from 'next/head'
 import Image from 'next/image'
-import { ButtonGroup } from '../components/Pages/ButtonGroup'
-import { Thumbnails } from '../components/Pages/Thumbnail'
-import { Lightbox } from '../components/Pages/Lightbox'
+import { ButtonGroup } from '../components/Pages/ButtonGroup/ButtonGroup'
+import { Thumbnails } from '../components/Pages/Thumbnail/Thumbnail'
+import { Lightbox } from '../components/Pages/LightBox/Lightbox'
 
 type HomeProps = {
   count: number
