@@ -56,12 +56,14 @@ export const Navbar = ({
           ) : null}
         </S.CartImage>
         <S.ProfileImage>
-          <Image
-            height={isSmall() ? 30 : 45}
-            width={isSmall() ? 30 : 45}
-            src={Avatar}
-            alt='Profile'
-          />
+          <S.Holder>
+            <Image
+              height={isSmall() ? 30 : 45}
+              width={isSmall() ? 30 : 45}
+              src={Avatar}
+              alt='Profile'
+            />
+          </S.Holder>
         </S.ProfileImage>
       </S.CartAndProfile>
     </S.Container>
