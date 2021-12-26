@@ -14,7 +14,13 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "types": ["jest", "@testing-library/react", "@testing-library/jest-dom"],
+    "types": [
+      "jest",
+      "@testing-library/react",
+      "@testing-library/jest-dom",
+      "cypress",
+      "@testing-library/cypress"
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
