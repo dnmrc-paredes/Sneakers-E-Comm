@@ -24,7 +24,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           cartItems={cartItems}
         />
         <Component
-          cartItems={cartItems}
           setCartItems={setCartItems}
           count={count}
           setCount={setCount}

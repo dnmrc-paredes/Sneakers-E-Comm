@@ -9,7 +9,6 @@ import { Lightbox } from '../components/Pages/LightBox/Lightbox'
 
 type HomeProps = {
   count: number
-  cartItems: number
   setCount: Dispatch<SetStateAction<number>>
   setCartItems: Dispatch<SetStateAction<number>>
 }
@@ -26,6 +25,7 @@ const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
 
       {isLightbox && (
         <Lightbox
+          data-testid='lightbox'
           image={image}
           setImage={setImage}
           setIsLightBox={setisLightBox}
@@ -41,12 +41,12 @@ const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
               height={400}
               width={400}
               alt='Product 1'
-              onClick={() => setisLightBox((prev) => !prev)}
+              onClick={() => setisLightBox(prev => !prev)}
             />
           </Root.BigImageContainer>
           <Thumbnails setImage={setImage} image={image} />
         </Root.ImagesContainer>
-        <Root.InfoContainer>
+        <Root.InfoContainer data-testid="product-info">
           <Root.SmallText> Sneaker Company </Root.SmallText>
           <Root.ProductTitle> Fall Limited Edition Sneakers </Root.ProductTitle>
           <Root.ProductInfo>
@@ -60,10 +60,15 @@ const Home: NextPage<HomeProps> = ({ count, setCount, setCartItems }) => {
           <Root.Discount> $250.00 </Root.Discount>
           <Root.ButtonContainer>
             <ButtonGroup setCount={setCount} count={count} />
-            <Root.AddToCart onClick={() => {
-              setCartItems((prev) => (prev += count))
-              setCount(0)
-            }} >Add to cart</Root.AddToCart>
+            <Root.AddToCart
+              data-testid='add-to-cart'
+              onClick={() => {
+                setCartItems(prev => (prev += count))
+                setCount(0)
+              }}
+            >
+              Add to cart
+            </Root.AddToCart>
           </Root.ButtonContainer>
         </Root.InfoContainer>
       </Root.ProductContainer>
