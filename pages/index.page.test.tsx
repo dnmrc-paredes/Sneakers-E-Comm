@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import renderer from 'react-test-renderer'
 import { ThemeTestProvider } from '../styles/theme/ThemeTestProvider'
-import Index from './index'
+import Index from './index.page'
 
 describe('Home page', () => {
   let count = 0
