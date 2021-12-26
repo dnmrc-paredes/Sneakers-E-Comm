@@ -18,7 +18,7 @@ export const ButtonGroup = ({ count, setCount }: ButtonGroupProps) => {
       >
         <Image src='/icon-minus.svg' width={15} height={5} alt='Minus' />
       </Root.Minus>
-      <Root.Count>{count}</Root.Count>
+      <Root.Count data-testid='count'>{count}</Root.Count>
       <Root.Plus
         data-testid='plusBtn'
         onClick={() => setCount(prev => (prev += 1))}

@@ -17,7 +17,7 @@ export const Cart = ({ cartItems, setCartItems }: CartProps) => {
         </Base.TitleContainer>
         <Base.ItemsContainer>
           {cartItems ? (
-            <Base.Item>
+            <Base.Item data-testid="product">
               <Image
                 src='/image-product-1-thumbnail.jpg'
                 width={50}
@@ -42,7 +42,7 @@ export const Cart = ({ cartItems, setCartItems }: CartProps) => {
               </Base.Info>
             </Base.Item>
           ) : (
-            <h4> Your cart is empty </h4>
+            <h4 data-testid="empty-cart"> Your cart is empty </h4>
           )}
         </Base.ItemsContainer>
         <Base.Button>Checkout</Base.Button>

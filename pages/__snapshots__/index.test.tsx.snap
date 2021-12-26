@@ -773,6 +773,7 @@ exports[`Home page It will match snapshot 1`] = `
           </button>
           <div
             className="Pages__Count-sc-qwt8hg-14 imGiZA"
+            data-testid="count"
           >
             0
           </div>
