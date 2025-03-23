@@ -56,8 +56,6 @@ type ThumbnailProps = {
 export const Thumbnails = ({ setImage, image }: ThumbnailProps) => {
   const setActiveImage = (pos: number) => () => setImage(pos)
 
-  console.log(image)
-
   return (
     <S.ThumbnailContainer>
       {IMAGES.map(({ src, name }, index) => {
