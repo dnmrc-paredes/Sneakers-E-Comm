@@ -3,8 +3,6 @@ import Link from 'next/link'
 import { IoCartOutline, IoMenu } from 'react-icons/io5'
 import { Cart } from '../Cart/Cart'
 import Image from 'next/image'
-import Avatar from '../../public/image-avatar.png'
-import Logo from '../../public/logo.svg'
 import { useWindow } from '../../hooks/useWindow'
 import styled from 'styled-components'
 import { breakpoints } from '../../styles'
@@ -136,7 +134,7 @@ export const Navbar = ({ setShowMenu }: NavbarProps) => {
               size={35}
             />
           ) : null}
-          <Image src={Logo} height={20} width={140} alt='Logo' />
+          <Image src='/logo.svg' height={20} width={140} alt='Logo' />
         </S.Logo>
         <S.Links>
           <Link href='#'> Collections </Link>
@@ -161,7 +159,7 @@ export const Navbar = ({ setShowMenu }: NavbarProps) => {
               <Image
                 height={isSmall ? 30 : 45}
                 width={isSmall ? 30 : 45}
-                src={Avatar}
+                src="/image-avatar.png"
                 alt='Profile'
               />
             </S.Holder>
