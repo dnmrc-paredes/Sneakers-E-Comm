@@ -5,7 +5,3 @@
   padding: 0;
   margin: 0;
 }
-
-div.active {
-  border: solid 3px hsl(26, 100%, 55%);
-}
